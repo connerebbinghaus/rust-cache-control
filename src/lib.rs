@@ -21,7 +21,12 @@ pub enum Cachability {
 /// Represents a Cache-Control header
 /// # Example
 /// ```
-/// let cache_control = CacheControl::from_header("Cache-Control: max-age=60");
+/// extern crate cache_control;
+/// extern crate time;
+/// use cache_control::CacheControl;
+/// use time::Duration;
+///
+/// let cache_control = CacheControl::from_header("Cache-Control: max-age=60").unwrap();
 /// assert_eq!(cache_control.max_age, Some(Duration::seconds(60)));
 /// ```
 ///

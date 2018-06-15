@@ -1,5 +1,5 @@
 [package]
-name = "cache-control"
+name = "cache_control"
 version = "0.1.0"
 authors = ["Conner Ebbinghaus <connerebbinghaus@gmail.com>"]
 description = "Rust crate to parse the HTTP Cache-Control header."
