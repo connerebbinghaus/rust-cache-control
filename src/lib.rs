@@ -2,15 +2,29 @@ extern crate time;
 
 use time::Duration;
 
+/// How the data may be cached.
 #[derive(Eq, PartialEq, Debug)]
 pub enum Cachability {
+    /// Any cache can cache this data.
     Public,
+
+    /// Data cannot be cached in shared caches.
     Private,
+
+    /// No one can cache this data.
     NoCache,
+
+    /// Cache the data the first time, and use the cache from then on.
     OnlyIfCached,
 }
 
-
+/// Represents a Cache-Control header
+/// # Example
+/// ```
+/// let cache_control = CacheControl::from_header("Cache-Control: max-age=60");
+/// assert_eq!(cache_control.max_age, Some(Duration::seconds(60)));
+/// ```
+///
 #[derive(Eq, PartialEq, Debug)]
 pub struct CacheControl {
     pub cachability: Option<Cachability>,
@@ -30,6 +44,7 @@ impl CacheControl {
         CacheControl::default()
     }
 
+    /// Parses the value of the Cache-Control header (i.e. everything after "Cache-Control:").
     pub fn from_value(value: &str) -> Option<CacheControl> {
         let mut ret = CacheControl::new();
         let tokens: Vec<&str> = value.split(",").collect();
@@ -87,6 +102,7 @@ impl CacheControl {
         Some(ret)
     }
 
+    /// Parses a Cache-Control header.
     pub fn from_header(value: &str) -> Option<CacheControl> {
         let header_value: Vec<&str> = value.split(":").map(|s| s.trim()).collect();
         if header_value.len() != 2 || header_value.first().unwrap() != &"Cache-Control" {
