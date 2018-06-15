@@ -1,0 +1,6 @@
+[package]
+name = "cache-control"
+version = "0.1.0"
+authors = ["Conner Ebbinghaus <connerebbinghaus@gmail.com>"]
+
+[dependencies]
