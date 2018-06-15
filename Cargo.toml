@@ -2,9 +2,6 @@
 name = "cache-control"
 version = "0.1.0"
 authors = ["Conner Ebbinghaus <connerebbinghaus@gmail.com>"]
-exclude = [
-    "*.iml",
-    ".idea",
-]
+
 [dependencies]
 time = "0.1"
