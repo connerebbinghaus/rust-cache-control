@@ -1,11 +1,9 @@
 [package]
 name = "cache_control"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Conner Ebbinghaus <connerebbinghaus@gmail.com>"]
 description = "Rust crate to parse the HTTP Cache-Control header."
 license = "MIT"
 repository = "https://github.com/connerebbinghaus/rust-cache-control"
 readme = "README.md"
-
-[dependencies]
-time = "0.1"
+edition = "2018"
